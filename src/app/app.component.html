@@ -1,4 +1,8 @@
-<ag-grid-angular 
+<p>
+  Socket server emited message: {{sample}}
+</p>
+<ag-grid-angular
+    (gridReady)="onGridReady($event)" 
     style="
       width: 600px; 
       height: 150px;
@@ -8,6 +12,6 @@
     class="ag-theme-balham"
     [rowData]="rowData" 
     [columnDefs]="columnDefs"
+    (cellValueChanged)="onCellValueChanged($event)"
     >
 </ag-grid-angular>
-<button (click)="emitSocket()">EMIT</button>

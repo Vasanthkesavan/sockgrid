@@ -1,20 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client';
+import { SocketService } from './socket.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  sample: 'Looks like we are not connected to the socket';
   socket: any;
+  private gridApi;
+  private gridColumnApi;
 
-  constructor() {
-    this.socket = io('http://localhost:3000/');
-    this.socket.on('connect', () => console.log('Frontend connection open'));
-    this.socket.on('sample_emit_value', function(val) {
-      console.log(val);
-    })
+  constructor(private socketService: SocketService) { 
+  }
+  
+  ngOnInit() {
+    this.socketService.sendSampleMessage('Hey from socket service!');
+    this.socketService.getSampleMessages()
+      .subscribe(sampleMessage => {
+        this.sample = sampleMessage;
+    });
   }
 
   columnDefs = [
@@ -29,7 +36,21 @@ export class AppComponent {
       { make: 'Porsche', model: 'Boxter', price: 72000 }
   ];
 
-  emitSocket() {
-    this.socket.emit('sample_emit_value', 'HELLO SERVER!');
+  onCellValueChanged(params) {
+    let rowId = params.node.id;
+    let colId = params.column.colId;
+    let oldValue = params.oldValue;
+    let newValue = params.newValue;
+    this.socketService.updateAColumn({ rowId: rowId, colId: colId, newValue: newValue, oldValue: oldValue });
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    this.socketService.getUpdatedColumn()
+      .subscribe(data => {
+        let rowNode = this.gridApi.getRowNode(data.rowId);
+        rowNode.setDataValue(data.colId, data.newValue);
+      })
   }
 }
