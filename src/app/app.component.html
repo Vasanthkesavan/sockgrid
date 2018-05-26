@@ -2,7 +2,8 @@
   Socket server emited message: {{sample}}
 </p>
 <ag-grid-angular
-    (gridReady)="onGridReady($event)" 
+    (gridReady)="onGridReady($event)"
+    #agGrid 
     style="
       width: 600px; 
       height: 150px;
@@ -15,3 +16,4 @@
     (cellValueChanged)="onCellValueChanged($event)"
     >
 </ag-grid-angular>
+<button (click)="changeColumnState()">Default</button>
