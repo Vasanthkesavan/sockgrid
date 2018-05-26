@@ -5,15 +5,22 @@ import { AppComponent } from './app.component';
 import { SocketService } from './socket.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutService } from './layout.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,BrowserAnimationsModule,
     AgGridModule.withComponents([]),
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [SocketService, LayoutService],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2% 90% 8%;
+    grid-template-rows: 9% 6% auto 3%;
+  }
+  
+  .item1 {
+    grid-column: 1/ 4;
+    grid-row: 1 / 2;
+  }
+  
+  .item2 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  
+  .item3 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }

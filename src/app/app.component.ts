@@ -3,6 +3,7 @@ import * as io from 'socket.io-client';
 import { SocketService } from './socket.service';
 import {GridOptions} from "ag-grid/main";
 import { LayoutService } from './layout.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -26,13 +27,58 @@ export class AppComponent implements OnInit {
     this.columnDefs = [
       {headerName: 'Make', field: 'make', editable: true },
       {headerName: 'Model', field: 'model' },
+      {headerName: 'Price', field: 'price'},
+      {headerName: 'Make', field: 'make', editable: true },
+      {headerName: 'Model', field: 'model' },
+      {headerName: 'Price', field: 'price'},
+      {headerName: 'Make', field: 'make', editable: true },
+      {headerName: 'Model', field: 'model' },
+      {headerName: 'Price', field: 'price'},
+      {headerName: 'Make', field: 'make', editable: true },
+      {headerName: 'Model', field: 'model' },
+      {headerName: 'Price', field: 'price'},
+      {headerName: 'Make', field: 'make', editable: true },
+      {headerName: 'Model', field: 'model' },
       {headerName: 'Price', field: 'price'}
     ];
   
     this.rowData = [
         { make: 'Toyota', model: 'Celica', price: 35000 },
         { make: 'Ford', model: 'Mondeo', price: 32000 },
-        { make: 'Porsche', model: 'Boxter', price: 72000 }
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 },
     ];
     this.gridOptions = <GridOptions>{};
   }

@@ -1,23 +1,27 @@
-<p>
-  Socket server emited message: {{sample}}
-</p>
-<p>
-  Message from REST Call: {{sampleRestData}}
-</p>
-<ag-grid-angular
-    (gridReady)="onGridReady($event)"
-    #agGrid 
-    style="
-      width: 600px; 
-      height: 150px;
-      padding-left: 30%;
-      padding-top: 25%;
-      " 
-    class="ag-theme-balham"
-    [rowData]="rowData" 
-    [columnDefs]="columnDefs"
-    (cellValueChanged)="onCellValueChanged($event)"
-    >
-</ag-grid-angular>
-<button (click)="changeColumnState()">Default</button>
-<button (click)="setLatestLayout()">Latest</button>
+<div class="container">
+    <div class="item1"> 
+      <mat-toolbar color="primary">
+          <mat-toolbar-row style="display: flex; justify-content: space-between">
+            <span>Sample Angular Ag Grid</span>
+            <span>Login</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <div class="item2">
+        <button mat-raised-button (click)="openDialog()">New Positions</button>
+        <button mat-raised-button (click)="changeColumnState()">Default UI</button>
+        <button mat-raised-button (click)="setLatestLayout()">Latest UI</button>
+    </div>
+    <div class="item3">
+        <ag-grid-angular
+        (gridReady)="onGridReady($event)"
+        #agGrid
+        style="width: 100vw; height: 100vh;" 
+        class="ag-theme-material"
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs"
+        (cellValueChanged)="onCellValueChanged($event)"
+        >
+    </ag-grid-angular>
+    </div>
+  </div>
