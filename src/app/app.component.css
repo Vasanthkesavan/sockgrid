@@ -19,4 +19,9 @@
   .item3 {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
+    overflow: hidden;
+  }
+
+  .ag-body-container {
+    overflow-y: scroll;
   }
