@@ -1,6 +1,9 @@
 <p>
   Socket server emited message: {{sample}}
 </p>
+<p>
+  Message from REST Call: {{sampleRestData}}
+</p>
 <ag-grid-angular
     (gridReady)="onGridReady($event)"
     #agGrid 
@@ -17,3 +20,4 @@
     >
 </ag-grid-angular>
 <button (click)="changeColumnState()">Default</button>
+<button (click)="setLatestLayout()">Latest</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client';
 import { SocketService } from './socket.service';
 import {GridOptions} from "ag-grid/main";
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import {GridOptions} from "ag-grid/main";
 export class AppComponent implements OnInit {
   sample: 'Looks like we are not connected to the socket';
   socket: any;
+  private sampleRestData;
   private gridApi;
   private gridColumnApi;
   public columnDefs;
@@ -18,8 +20,9 @@ export class AppComponent implements OnInit {
   private layout;
   private defaultLayout;
   public gridOptions: GridOptions;
+  private latestLayout;
 
-  constructor(private socketService: SocketService) { 
+  constructor(private socketService: SocketService, private layoutService: LayoutService) { 
     this.columnDefs = [
       {headerName: 'Make', field: 'make', editable: true },
       {headerName: 'Model', field: 'model' },
@@ -40,6 +43,11 @@ export class AppComponent implements OnInit {
       .subscribe(sampleMessage => {
         this.sample = sampleMessage;
     });
+
+    this.layoutService.getSampleData()
+      .subscribe(data => {
+        this.sampleRestData = data;
+      })
   }
 
   onCellValueChanged(params) {
@@ -52,14 +60,23 @@ export class AppComponent implements OnInit {
 
   changeColumnState(){
     this.gridColumnApi.setColumnState(this.defaultLayout)
-    // console.log(this.defaultLayout)
+  }
+
+  setLatestLayout() {
+    this.layoutService.getCurrentState()
+      .subscribe(data => {
+        let parsed = JSON.parse(data);
+        this.latestLayout = parsed[parsed.length - 1]['positionsTab'];
+        this.gridColumnApi.setColumnState(this.latestLayout);
+      })
   }
 
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.defaultLayout = this.gridColumnApi.getColumnState();
-
+    
+    let that = this;
     this.socketService.getUpdatedColumn()
       .subscribe(data => {
         let rowNode = this.gridApi.getRowNode(data.rowId);
@@ -68,8 +85,11 @@ export class AppComponent implements OnInit {
 
       this.gridApi.addGlobalListener(function(type, event) {
         if(type === 'dragStopped') {
+          that.layoutService.saveChangedState(params.columnApi.getColumnState())
+            .subscribe(data => {
+              console.log(data);
+            })
           params.columnApi.setColumnState(params.columnApi.getColumnState());
-          console.log(params.columnApi.getColumnState())
         }
       })
 

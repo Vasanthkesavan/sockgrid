@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AgGridModule } from 'ag-grid-angular';
 import { AppComponent } from './app.component';
 import { SocketService } from './socket.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LayoutService } from './layout.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { SocketService } from './socket.service';
   ],
   imports: [
     BrowserModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    HttpClientModule
   ],
-  providers: [SocketService],
+  providers: [SocketService, LayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
