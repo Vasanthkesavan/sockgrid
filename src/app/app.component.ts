@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
   constructor(private socketService: SocketService, private layoutService: LayoutService) { 
     this.columnDefs = [
-      {headerName: 'Make', field: 'make', editable: true },
+      {headerName: 'Make', field: 'make', editable: true,  },
       {headerName: 'Model', field: 'model' },
       {headerName: 'Price', field: 'price'},
       {headerName: 'Make', field: 'make', editable: true },
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
       {headerName: 'Model', field: 'model' },
       {headerName: 'Price', field: 'price'}
     ];
-  
+
     this.rowData = [
         { make: 'Toyota', model: 'Celica', price: 35000 },
         { make: 'Ford', model: 'Mondeo', price: 32000 },

@@ -3,3 +3,22 @@
 @import "~ag-grid/dist/styles/ag-theme-balham.css";
 @import '~ag-grid/dist/styles/ag-theme-material.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.ag-header {
+    box-sizing: border-box;
+    overflow: hidden;
+    background: darkgrey;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.ag-header-cell {
+    color: white;
+    font-size: 12px;
+}
+
+.mat-toolbar.mat-primary {
+    background:black;
+    color: #fff;
+    line-height: 6px;
+}
