@@ -9,20 +9,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,BrowserAnimationsModule,
+    BrowserModule, BrowserAnimationsModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
     MatToolbarModule
   ],
-  providers: [SocketService, LayoutService],
+  providers: [SocketService, LayoutService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
