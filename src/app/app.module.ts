@@ -13,6 +13,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { DataService } from './data.service';
 import { AllCompaniesComponent } from './all-companies/all-companies.component';
 import { SearchCompaniesComponent } from './search-companies/search-companies.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,13 @@ import { SearchCompaniesComponent } from './search-companies/search-companies.co
     MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatCardModule
   ],
   providers: [SocketService, LayoutService, DataService],
   bootstrap: [AppComponent]

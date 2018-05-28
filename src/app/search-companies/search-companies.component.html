@@ -1,1 +1,32 @@
-<button mat-raised-button (click)="openDialog()">FIND COMPANY</button>
+<div class="container">
+    <div class="item1">
+        <span>1. Find out the company information below</span>
+        <form class="form">
+            <mat-form-field class="full-width">
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption  #auto="matAutocomplete" (optionSelected)="getCompanyInfo($event.option.value)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{ option }}
+                </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="item2">
+            <div *ngIf="isLoaded">
+                <mat-card class="card">
+                    <mat-card-header>
+                        <mat-card-title>{{companyData.companyName}}</mat-card-title>
+                        <mat-card-subtitle>{{companyData.sector}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p><strong>CEO: {{companyData.CEO}}</strong></p>
+                        <p><strong>INDUSTRY: {{companyData.industry}}</strong></p>
+                        <p>{{companyData.description}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+    </div>
+</div>
+
+
