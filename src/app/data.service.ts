@@ -6,6 +6,6 @@ export class DataService {
     constructor(private http: HttpClient) {  }
 
     getGridData() {
-        return this.http.get('http://localhost:3000/api/getSymbols');
+        return this.http.get('http://localhost:3000/api/sendCompanyStats');
     }
 }

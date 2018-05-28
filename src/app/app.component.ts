@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
     this.dataService.getGridData()
       .subscribe(
         (response) => {
-          this.columnDefs = [{ headerName: 'COMPANY DETAILS', children: response['columnDefs']}];
+          this.columnDefs = response['columnDefs'];
+          console.log(this.columnDefs);
           this.gridApi.setRowData(response['rowData']);
         }
       );
@@ -46,6 +47,15 @@ export class AppComponent implements OnInit {
       .subscribe(data => {
         this.sampleRestData = data;
       });
+  }
+
+  autoSizeAll() {
+    // tslint:disable-next-line:prefer-const
+    let allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach(function(column) {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
   }
 
   onCellValueChanged(params) {
@@ -68,7 +78,8 @@ export class AppComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.gridColumnApi.autoSizeColumns();
+    this.autoSizeAll();
+    this.gridColumnApi.autoSizeColumns()
     // this.defaultLayout = this.gridColumnApi.getColumnState();
     const that = this;
     this.socketService.getUpdatedColumn()
@@ -86,7 +97,5 @@ export class AppComponent implements OnInit {
           params.columnApi.setColumnState(params.columnApi.getColumnState());
         }
       });
-
   }
-
 }

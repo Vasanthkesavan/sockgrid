@@ -2,13 +2,15 @@
     <div class="item1"> 
       <mat-toolbar color="primary">
           <mat-toolbar-row style="display: flex; justify-content: space-between">
-            <span>MARKET DATA <span style="font-size: 12px">~by Vasanthan Kesavan</span></span>
-            <button mat-button style="padding-right: 20px">Login</button>
+            <span style="letter-spacing: 1px"> KEY MARKET STATS <span style="font-size: 12px; letter-spacing: 1px;">~by Vasanthan Kesavan</span></span>
+            <span mat-button style="padding-right: 20px; letter-spacing: 1px; font-size: 11px">
+                Data provided for free by <a style="color: white" href="https://iextrading.com/developer">IEX.</a> View <a style="color: white" href="https://iextrading.com/api-exhibit-a/">IEX's Terms of Use</a>. 
+            </span>
           </mat-toolbar-row>
         </mat-toolbar>
     </div>
     <div class="item2">
-        <button mat-raised-button (click)="openDialog()">ADD COMPANY</button>
+        <button mat-raised-button (click)="openDialog()">FIND COMPANY</button>
     </div>
     <div class="item3">
         <ag-grid-angular
