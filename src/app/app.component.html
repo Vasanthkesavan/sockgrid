@@ -2,30 +2,25 @@
     <div class="item1"> 
       <mat-toolbar color="primary">
           <mat-toolbar-row style="display: flex; justify-content: space-between">
-            <span style="letter-spacing: 1px"> KEY MARKET STATS <span style="font-size: 12px; letter-spacing: 1px;">~by Vasanthan Kesavan</span></span>
-            <span mat-button style="padding-right: 20px; letter-spacing: 1px; font-size: 11px">
-                Data provided for free by <a style="color: white" href="https://iextrading.com/developer">IEX.</a> View <a style="color: white" href="https://iextrading.com/api-exhibit-a/">IEX's Terms of Use</a>. 
+            <span style="letter-spacing: 1px">
+                KEY MARKET STATS
+                <br><br><br> 
+                    <span mat-button style="letter-spacing: 1px; font-size: 10px">
+                            ~ Data provided for free by <a style="color: white" href="https://iextrading.com/developer">IEX.</a> View <a style="color: white" href="https://iextrading.com/api-exhibit-a/">IEX's Terms of Use</a>. 
+                    </span>
             </span>
+            <button mat-button>LOGIN</button>
           </mat-toolbar-row>
         </mat-toolbar>
     </div>
-    <div class="item2">
-        <button mat-raised-button (click)="openDialog()">FIND COMPANY</button>
-    </div>
     <div class="item3">
-        <ag-grid-angular
-        style="width:100%; height: 100%;"
-        [enableColResize]="true"
-        rowSelection="multiple"
-        (gridReady)="onGridReady($event)"
-        #agGrid
-        class="ag-theme-material"
-        [rowData]="rowData"
-        [suppressHorizontalScroll]="false" 
-        [columnDefs]="columnDefs"
-        (cellValueChanged)="onCellValueChanged($event)"
-        
-        >
-    </ag-grid-angular>
+            <mat-tab-group>
+                <mat-tab label="ALL COMPANIES">
+                    <app-all-companies></app-all-companies>
+                </mat-tab>
+                <mat-tab label="SEARCH A COMPANY">
+                    <app-search-companies></app-search-companies>
+                </mat-tab>
+            </mat-tab-group>
     </div>
   </div>

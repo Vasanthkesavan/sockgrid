@@ -1,0 +1,8 @@
+.mat-raised-button {
+    line-height: 22px;
+    font-size: 12px;
+    background: gray;
+    color: white;
+    letter-spacing: 1px;
+    width: 150px;
+}

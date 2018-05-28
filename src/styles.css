@@ -8,18 +8,19 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
 }
 
-.ag-header {
-    box-sizing: border-box;
-    overflow: hidden;
-    background: #546e7a;
-    white-space: nowrap;
-    width: 100%;
-    letter-spacing: 2px;
-}
+.mat-tab-body-content{height:100%;overflow:hidden !important}.mat-tab-group-dynamic-height
 
+.ag-header-row { }
+
+.mat-tab-label {
+    height: 34px !important;
+    letter-spacing: 1px;
+}
 .ag-header-cell {
     color: white;
     font-size: 12px;
+    background: #546e7a !important;
+    letter-spacing: 2px;
 }
 
 .mat-toolbar.mat-primary {
@@ -32,3 +33,7 @@ body, h1, h2, h3, h4, h5, h6 {
     color: white;
     font-size: 16px;
 }
+
+.mat-tab-body.mat-tab-body-active {
+    height: 100vh;
+  }
