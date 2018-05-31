@@ -1,4 +1,4 @@
-<button mat-raised-button>Save
+<button (click)="openDialog()" mat-raised-button>Save
 <mat-select style="width: 18px; color: white" placeholder="Favorite food">
   <mat-option *ngFor="let food of foods" [value]="food.value">
     {{ food.viewValue }}
