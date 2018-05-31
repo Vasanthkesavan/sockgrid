@@ -1,0 +1,49 @@
+p {
+    font-family: Lato;
+  }
+  
+  /* to change arrow when focused */
+  .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+      color: #63961C;
+  }
+  
+  /* to change underline when focused */
+  .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+      background-color: white;
+  }
+  
+  /* to change plceholder text when focused */
+  .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger {
+      color: #63961C;
+  }
+  
+  /* shorter css */
+  /*
+  .mat-select:focus:not(.mat-select-disabled).mat-primary 
+  .mat-select-arrow , .mat-select-underline , .mat-select-trigger
+  {
+      color: #63961C;
+  }
+  */
+  
+  /* to change selected item color in the select list */
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+      color: #63961C;
+  }
+  .mat-select-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    margin: 0 4px;
+    color: white !important;
+}
+  .mat-raised-button {
+    line-height: 22px;
+    font-size: 12px;
+    background: gray;
+    color: white;
+    letter-spacing: 1px;
+    width: 80px;
+}

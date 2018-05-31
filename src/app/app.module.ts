@@ -18,12 +18,16 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { ViewConfigComponent } from './view-config/view-config.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllCompaniesComponent,
-    SearchCompaniesComponent
+    SearchCompaniesComponent,
+    ViewConfigComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
@@ -38,7 +42,9 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [SocketService, LayoutService, DataService],
   bootstrap: [AppComponent]
